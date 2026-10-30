@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f1f7fb;
+    color: #243447;
+}
+
+header {
+    background: #087f8c;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header h2 {
+    font-size: 26px;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #b9f3ed;
+}
+
+.hero {
+    text-align: center;
+    padding: 75px 20px;
+    background: linear-gradient(135deg, #d8f3f0, #e4efff);
+}
+
+.hero h1 {
+    font-size: 38px;
+    color: #075985;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 17px;
+    margin-bottom: 28px;
+}
+
+.btn {
+    display: inline-block;
+    background: #087f8c;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-container {
+    background: white;
+    width: 90%;
+    max-width: 430px;
+    margin: 35px auto;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px #00000012;
+    text-align: center;
+    scroll-margin-top: 20px;
+}
+
+.form-container h2 {
+    color: #087f8c;
+    margin-bottom: 22px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: 2px solid #7dd3c7;
+}
+
+button {
+    padding: 13px;
+    background: #087f8c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover, .btn:hover {
+    background: #065f68;
+}
+
+.form-container p {
+    margin-top: 18px;
+}
+
+.form-container a {
+    color: #087f8c;
+}
+
+#message {
+    overflow-wrap: anywhere;
+}
+
+footer {
+    background: #123344;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+}

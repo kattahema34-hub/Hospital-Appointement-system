@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePoint - Book Appointment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>CarePoint Hospital</h1>
+        <h2>Book an Appointment</h2>
+
+        <form id="appointmentForm">
+            <input type="text" id="patientName"
+                   placeholder="Patient Name" required>
+
+            <input type="email" id="patientEmail"
+                   placeholder="Email Address" required>
+<input type="tel"
+       id="patientMobile"
+       placeholder="Mobile Number"
+       pattern="[0-9]{10}"
+       maxlength="10"
+       minlength="10"
+       inputmode="numeric"
+       required>
+            <select id="doctor" required>
+                <option value="">Select Doctor</option>
+                <option value="Dr. Ravi - Cardiologist">
+                    Dr. Ravi - Cardiologist
+                </option>
+                <option value="Dr. Priya - Dermatologist">
+                    Dr. Priya - Dermatologist
+                </option>
+                <option value="Dr. Arun - General Physician">
+                    Dr. Arun - General Physician
+                </option>
+            </select>
+
+            <input type="date" id="appointmentDate" required>
+
+            <input type="time" id="appointmentTime" required>
+
+            <textarea id="reason"
+                      placeholder="Reason for Visit"
+                      required></textarea>
+
+            <button type="submit">Book Appointment</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const dateInput = document.getElementById("appointmentDate");
+        dateInput.min = new Date().toLocaleDateString("en-CA");
+
+        document.getElementById("appointmentForm")
+            .addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const appointment = {
+                    patientName: document.getElementById("patientName").value,
+                    patientEmail: document.getElementById("patientEmail").value,
+                    doctor: document.getElementById("doctor").value,
+                    date: dateInput.value,
+                    time: document.getElementById("appointmentTime").value,
+                    reason: document.getElementById("reason").value
+                };
+
+                const appointments =
+                    JSON.parse(localStorage.getItem("appointments") || "[]");
+
+                appointments.push(appointment);
+
+                localStorage.setItem(
+                    "appointments",
+                    JSON.stringify(appointments)
+                );
+
+                document.getElementById("message").textContent =
+                    "Appointment booked successfully!";
+
+                this.reset();
+            });
+    </script>
+
+</body>
+</html>
